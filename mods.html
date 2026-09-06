@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Mods e créditos — Blocos Para Todos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #23261E;
+  --bg: #F4EFDF;
+  --panel: #EAE2C8;
+  --panel-line: #D8CCA6;
+  --forest: #3B5240;
+  --forest-dark: #2A3B2E;
+  --amber: #C98A3E;
+  --amber-dark: #9C6A2C;
+  --slate: #4C5B66;
+  --cream: #FBF8EE;
+}
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: 'Fraunces', serif; color: var(--forest-dark); margin: 0; line-height: 1.2; }
+a { color: var(--forest-dark); }
+:focus-visible { outline: 3px solid var(--amber-dark); outline-offset: 3px; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+header.site { border-bottom: 3px solid var(--forest-dark); background: var(--cream); }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 32px; max-width: 980px; margin: 0 auto; gap: 16px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem; color: var(--forest-dark); text-decoration: none; }
+.logo-mark { width: 30px; height: 30px; background: var(--forest); border: 2px solid var(--forest-dark); position: relative; flex-shrink: 0; }
+.logo-mark::after { content: ""; position: absolute; top: 6px; left: 6px; width: 8px; height: 8px; background: var(--amber); }
+.nav-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.back-link { font-weight: 700; text-decoration: none; font-size: 0.95rem; color: var(--ink); border-bottom: 2px solid transparent; }
+.back-link:hover { border-bottom-color: var(--amber-dark); }
+.lang-switch { display: flex; gap: 4px; border: 1.5px solid var(--forest-dark); padding: 3px; background: var(--cream); }
+.lang-btn {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--forest-dark);
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.lang-btn:hover { background: var(--panel); }
+.lang-btn[aria-pressed="true"] { background: var(--forest-dark); color: var(--cream); }
+.intro { padding: 64px 32px 24px; }
+.intro h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); max-width: 20ch; }
+.intro p { margin-top: 16px; max-width: 62ch; color: #3a3d33; font-size: 1.08rem; }
+.pack-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+.pack-nav a { text-decoration: none; font-weight: 700; font-size: 0.9rem; color: var(--forest-dark); border: 1.5px solid var(--forest-dark); padding: 8px 16px; }
+.pack-nav a:hover { background: var(--panel); }
+section.pack { padding: 56px 32px; border-top: 2px solid var(--panel-line); }
+section.pack:nth-of-type(even) { background: var(--panel); }
+.pack-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.pack-head h2 { font-size: 1.7rem; }
+.pack-head .filename { font-size: 0.85rem; color: var(--slate); font-family: monospace; }
+.pack-desc { color: #3a3d33; max-width: 62ch; margin-bottom: 32px; }
+.mod-list { display: flex; flex-direction: column; gap: 2px; background: var(--panel-line); border: 2px solid var(--panel-line); }
+section.pack:nth-of-type(even) .mod-list { background: var(--panel-line); }
+.mod-row { background: var(--cream); padding: 24px 28px; display: grid; grid-template-columns: 1fr; gap: 6px; }
+section.pack:nth-of-type(even) .mod-row { background: var(--panel); }
+.mod-row .top-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mod-row h3 { font-size: 1.15rem; }
+.mod-row .tag { font-size: 0.75rem; font-weight: 700; color: var(--forest-dark); border: 1.5px solid var(--forest-dark); padding: 2px 9px; }
+.mod-row p.desc { color: #3a3d33; margin: 4px 0 0; }
+.mod-row .credit-line { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+.mod-row .credit { font-size: 0.92rem; color: var(--slate); }
+.mod-row .credit strong { color: var(--forest-dark); }
+.mod-row .ext-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--forest-dark);
+  border-bottom: 1.5px solid var(--amber-dark);
+  padding-bottom: 1px;
+}
+section.libs { padding: 56px 32px; border-top: 3px solid var(--forest-dark); background: var(--forest-dark); color: var(--cream); }
+section.libs h2 { color: var(--cream); font-size: 1.6rem; max-width: 26ch; }
+section.libs > .wrap > p { margin-top: 14px; max-width: 62ch; color: #DCE3D3; }
+.lib-grid { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #1f2c22; border: 1px solid #1f2c22; }
+.lib-item { background: var(--forest-dark); padding: 20px 24px; }
+.lib-item h3 { color: var(--cream); font-size: 1rem; }
+.lib-item p { margin-top: 4px; color: #C9D2BF; font-size: 0.9rem; }
+.lib-item a.ext-link { color: var(--amber); border-bottom: 1.5px solid var(--amber); font-size: 0.85rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 8px; }
+footer { padding: 48px 32px 56px; color: #5b5e50; font-size: 0.92rem; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-credit { display: flex; align-items: center; gap: 10px; }
+.footer-credit img { width: 26px; height: 26px; object-fit: cover; border-radius: 50%; border: 1.5px solid var(--forest-dark); filter: grayscale(100%); flex-shrink: 0; }
+@media (max-width: 700px) {
+  .lib-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="logo" href="index.html"><span class="logo-mark"></span>Blocos Para Todos</a>
+    <div class="nav-right">
+      <a class="back-link" href="index.html" data-i18n="nav_back">Voltar para a página inicial</a>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma / Langue">
+        <button type="button" class="lang-btn" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h1 data-i18n="intro_title">O que tem em cada pacote, e quem fez cada mod</h1>
+    <p data-i18n="intro_desc">Todo o crédito é dos criadores originais de cada mod e pacote de texturas. Cada um tem um link direto para a página oficial na Modrinth, onde você pode ver mais detalhes, outras versões e apoiar quem criou.</p>
+    <div class="pack-nav">
+      <a href="#pacote1" data-i18n="nav_pack1">Pacote 1</a>
+      <a href="#pacote2" data-i18n="nav_pack2">Pacote 2</a>
+      <a href="#texturas" data-i18n="nav_textures">Resource packs</a>
+      <a href="#bibliotecas" data-i18n="nav_libs">Bibliotecas necessárias</a>
+    </div>
+  </div>
+</section>
+
+<section class="pack" id="pacote1">
+  <div class="wrap">
+    <div class="pack-head">
+      <h2 data-i18n="nav_pack1">Pacote 1</h2>
+      <span class="filename">mods1.rar</span>
+    </div>
+    <p class="pack-desc" data-i18n="pack1_desc">Foco em desempenho, navegação e conforto durante o jogo — para reduzir travamentos, ajudar a se localizar no mundo e evitar perdas frustrantes.</p>
+    <div class="mod-list">
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Sodium</h3><span class="tag" data-i18n="tag_desempenho">Desempenho</span></div>
+        <p class="desc" data-i18n="sodium_desc">Reescreve a forma como o jogo renderiza os gráficos, deixando o FPS muito mais estável. Menos travamentos ajudam bastante quem tem dificuldade de reagir a movimentos bruscos na tela.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>CaffeineMC</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Lithium</h3><span class="tag" data-i18n="tag_desempenho">Desempenho</span></div>
+        <p class="desc" data-i18n="lithium_desc">Otimiza a lógica interna do jogo (física, mobs, mundo) sem mudar nada visualmente. Trabalha junto com o Sodium para deixar tudo mais fluido.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>CaffeineMC</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Xaero's Minimap</h3><span class="tag" data-i18n="tag_orientacao">Orientação</span></div>
+        <p class="desc" data-i18n="xaero_mini_desc">Mostra um mini-mapa no canto da tela com o terreno ao redor. Ajuda muito quem tem dificuldade de memória espacial ou se perde fácil dentro do jogo.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>Xaero96</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Xaero's World Map</h3><span class="tag" data-i18n="tag_orientacao">Orientação</span></div>
+        <p class="desc" data-i18n="xaero_world_desc">Complementa o minimapa com um mapa completo do mundo já explorado, para planejar rotas com calma em vez de decorar caminhos.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>Xaero96</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/xaeros-world-map" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Vein Miner</h3><span class="tag" data-i18n="tag_motor">Motor</span></div>
+        <p class="desc" data-i18n="veinminer_desc">Ao minerar um bloco de minério, todos os blocos do mesmo tipo conectados a ele são minerados juntos. Reduz muito a quantidade de cliques repetitivos necessários.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>TheIllusiveC4</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/vein-mining" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>You're in Grave Danger</h3><span class="tag" data-i18n="tag_seguranca">Segurança</span></div>
+        <p class="desc" data-i18n="grave_desc">Quando o jogador morre, os itens ficam guardados em um túmulo no local da morte em vez de se espalharem pelo chão. Evita o desespero de correr contra o tempo para recuperar tudo.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>b1n_ry</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/yigd" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>No Creeper Explosion</h3><span class="tag" data-i18n="tag_seguranca">Segurança</span></div>
+        <p class="desc" data-i18n="creeper_desc">Impede que a explosão do creeper destrua blocos ao redor — o dano ao jogador continua existindo, mas construções e trilhas não são destruídas sem querer.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>CraftyCoder</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/creeper-no-break-blocks" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Roughly Enough Items (REI)</h3><span class="tag" data-i18n="tag_cognitivo">Cognitivo</span></div>
+        <p class="desc" data-i18n="rei_desc">Mostra as receitas de crafting diretamente na tela, com busca de itens. Tira a necessidade de decorar receitas ou procurar em sites externos.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>shedaniel</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/rei" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>LambDynamicLights</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="lamb_desc">Faz itens como tochas e lanternas iluminarem o chão ao redor do jogador automaticamente, sem precisar colocar blocos de luz no caminho.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>LambdAurora</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/lambdynamiclights" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Iris Shaders</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="iris_desc">Permite usar shaders (efeitos de luz e sombra mais realistas), o que pode deixar áreas escuras mais fáceis de enxergar dependendo do shader escolhido.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>equipe IrisShaders</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/iris" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>SkinShuffle</h3><span class="tag" data-i18n="tag_cosmetico">Cosmético</span></div>
+        <p class="desc" data-i18n="skinshuffle_desc">Permite trocar a skin do personagem dentro do próprio jogo, sem precisar reiniciar.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>IMB11</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/skinshuffle" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Mod Menu</h3><span class="tag" data-i18n="tag_utilidade">Utilidade</span></div>
+        <p class="desc" data-i18n="modmenu_desc">Cria uma tela dentro do jogo para ver e configurar todos os mods instalados, em vez de mexer em arquivos externos.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>Prospector / TerraformersMC</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/modmenu" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pack" id="pacote2">
+  <div class="wrap">
+    <div class="pack-head">
+      <h2 data-i18n="nav_pack2">Pacote 2</h2>
+      <span class="filename">mods2.rar</span>
+    </div>
+    <p class="pack-desc" data-i18n="pack2_desc">Foco em organização, informação visível na tela e mais desempenho — complementa o primeiro pacote.</p>
+    <div class="mod-list">
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Inventory Profiles Next</h3><span class="tag" data-i18n="tag_cognitivo">Cognitivo</span></div>
+        <p class="desc" data-i18n="ipn_desc">Organiza o inventário automaticamente com um clique, junta itens iguais e permite travar slots para não bagunçar sua organização.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>blackd</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/inventory-profiles-next" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>AppleSkin</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="appleskin_desc">Mostra na tela informações que normalmente ficam escondidas, como o quanto de fome cada alimento realmente recupera. Deixa mecânicas invisíveis do jogo visíveis.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>squeek502</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/appleskin" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Fullbright (multiplayer)</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="fullbright_desc">Clareia áreas escuras do jogo, ajudando quem tem sensibilidade à luz ou dificuldade de enxergar em cavernas e à noite sem precisar de tochas em todo lugar.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>o-Peepo</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/datapack/fullbright-multiplayer" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Entity Model Features / Entity Texture Features</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="emf_desc">Permitem que resource packs adicionem texturas e modelos mais detalhados aos mobs, usados pelos pacotes de textura desta página.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>traben</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/entity-model-features" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>EntityCulling</h3><span class="tag" data-i18n="tag_desempenho">Desempenho</span></div>
+        <p class="desc" data-i18n="entityculling_desc">Deixa de processar a renderização de entidades que não estão visíveis na tela, melhorando o FPS.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>tr7zw</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/entityculling" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>FerriteCore</h3><span class="tag" data-i18n="tag_desempenho">Desempenho</span></div>
+        <p class="desc" data-i18n="ferritecore_desc">Reduz a quantidade de memória que o jogo usa, ajudando computadores mais fracos a rodar sem travar.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>malte0811</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/ferritecore" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pack" id="texturas">
+  <div class="wrap">
+    <div class="pack-head">
+      <h2 data-i18n="nav_textures">Resource packs</h2>
+      <span class="filename">resourcepacks.rar</span>
+    </div>
+    <p class="pack-desc" data-i18n="textures_desc">Pacotes de textura que reforçam a clareza visual do jogo — não mudam a jogabilidade, só a forma como tudo aparece na tela.</p>
+    <div class="mod-list">
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Faithful 32x</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="faithful_desc">Redesenha as texturas do jogo em maior resolução, mantendo o visual original — só com mais nitidez e detalhe.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>Faithful Team</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/resourcepack/faithful-32x" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Fresh Animations</h3><span class="tag" data-i18n="tag_visual_cognitivo">Visual / Cognitivo</span></div>
+        <p class="desc" data-i18n="freshanim_desc">Dá animações mais expressivas e realistas aos mobs, o que ajuda a reconhecer suas ações e intenções (como um ataque prestes a acontecer) com mais clareza.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>FreshLX</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/resourcepack/fresh-animations" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+      <div class="mod-row">
+        <div class="top-line"><h3>Unique Dark — Lite</h3><span class="tag" data-i18n="tag_visual">Visual</span></div>
+        <p class="desc" data-i18n="uniquedark_desc">Redesenha os menus do jogo com mais contraste e legibilidade, deixando telas de crafting, baú e outras interfaces mais fáceis de ler.</p>
+        <div class="credit-line"><p class="credit"><span data-i18n="credit_label">Criado por:</span> <strong>AmongstReality</strong></p><a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/resourcepack/unique-dark" target="_blank" rel="noopener">Ver na Modrinth</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="libs" id="bibliotecas">
+  <div class="wrap">
+    <h2 data-i18n="nav_libs">Bibliotecas necessárias para os mods funcionarem</h2>
+    <p data-i18n="libs_desc">Estes não são mods "visíveis" — não adicionam nada sozinhos, mas vários dos mods acima precisam deles instalados para funcionar. Sem eles, o jogo não abre ou os outros mods dão erro.</p>
+    <div class="lib-grid">
+
+      <div class="lib-item">
+        <h3>Fabric API</h3>
+        <p data-i18n="fabricapi_desc">Base exigida por quase todos os mods de Fabric — FabricMC</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Fabric Language Kotlin</h3>
+        <p data-i18n="flk_desc">Permite rodar mods escritos em Kotlin, como o Inventory Profiles Next — FabricMC</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/fabric-language-kotlin" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Cloth Config</h3>
+        <p data-i18n="clothconfig_desc">Cria as telas de configuração usadas por REI e outros mods — shedaniel</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/cloth-config" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Architectury API</h3>
+        <p data-i18n="architectury_desc">Compatibilidade entre diferentes mod loaders — shedaniel</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/architectury-api" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Cardinal Components API</h3>
+        <p data-i18n="cardinal_desc">Armazena dados extras usados por outros mods — OnyxStudios</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/cardinal-components-api" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Placeholder API</h3>
+        <p data-i18n="placeholder_desc">Permite que mods insiram textos dinâmicos — Patbox</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/placeholder-api" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>Silk</h3>
+        <p data-i18n="silk_desc">Biblioteca de apoio usada por outros mods do pacote — comunidade Modrinth</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/silk" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+      <div class="lib-item">
+        <h3>libIPN</h3>
+        <p data-i18n="libipn_desc">Biblioteca exigida pelo Inventory Profiles Next — blackd</p>
+        <a class="ext-link" data-i18n="ext_link" href="https://modrinth.com/mod/libipn" target="_blank" rel="noopener">Ver na Modrinth</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer_line1">Blocos Para Todos — trabalho escolar, 2026</span>
+    <span class="footer-credit"><img src="Minecraft.jpg" alt=""><span data-i18n="footer_line2">Feito por João Victor de Lima, Cauã de Souza, Stefhany Vitória e auxiliados por Álvaro Magnum</span></span>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  pt: {
+    page_title: "Mods e créditos — Blocos Para Todos",
+    nav_back: "Voltar para a página inicial",
+    intro_title: "O que tem em cada pacote, e quem fez cada mod",
+    intro_desc: "Todo o crédito é dos criadores originais de cada mod e pacote de texturas. Cada um tem um link direto para a página oficial na Modrinth, onde você pode ver mais detalhes, outras versões e apoiar quem criou.",
+    nav_pack1: "Pacote 1",
+    nav_pack2: "Pacote 2",
+    nav_textures: "Resource packs",
+    nav_libs: "Bibliotecas necessárias",
+    pack1_desc: "Foco em desempenho, navegação e conforto durante o jogo — para reduzir travamentos, ajudar a se localizar no mundo e evitar perdas frustrantes.",
+    pack2_desc: "Foco em organização, informação visível na tela e mais desempenho — complementa o primeiro pacote.",
+    textures_desc: "Pacotes de textura que reforçam a clareza visual do jogo — não mudam a jogabilidade, só a forma como tudo aparece na tela.",
+    libs_desc: "Estes não são mods \"visíveis\" — não adicionam nada sozinhos, mas vários dos mods acima precisam deles instalados para funcionar. Sem eles, o jogo não abre ou os outros mods dão erro.",
+    tag_desempenho: "Desempenho",
+    tag_orientacao: "Orientação",
+    tag_motor: "Motor",
+    tag_seguranca: "Segurança",
+    tag_cognitivo: "Cognitivo",
+    tag_visual: "Visual",
+    tag_visual_cognitivo: "Visual / Cognitivo",
+    tag_cosmetico: "Cosmético",
+    tag_utilidade: "Utilidade",
+    credit_label: "Criado por:",
+    ext_link: "Ver na Modrinth",
+    sodium_desc: "Reescreve a forma como o jogo renderiza os gráficos, deixando o FPS muito mais estável. Menos travamentos ajudam bastante quem tem dificuldade de reagir a movimentos bruscos na tela.",
+    lithium_desc: "Otimiza a lógica interna do jogo (física, mobs, mundo) sem mudar nada visualmente. Trabalha junto com o Sodium para deixar tudo mais fluido.",
+    xaero_mini_desc: "Mostra um mini-mapa no canto da tela com o terreno ao redor. Ajuda muito quem tem dificuldade de memória espacial ou se perde fácil dentro do jogo.",
+    xaero_world_desc: "Complementa o minimapa com um mapa completo do mundo já explorado, para planejar rotas com calma em vez de decorar caminhos.",
+    veinminer_desc: "Ao minerar um bloco de minério, todos os blocos do mesmo tipo conectados a ele são minerados juntos. Reduz muito a quantidade de cliques repetitivos necessários.",
+    grave_desc: "Quando o jogador morre, os itens ficam guardados em um túmulo no local da morte em vez de se espalharem pelo chão. Evita o desespero de correr contra o tempo para recuperar tudo.",
+    creeper_desc: "Impede que a explosão do creeper destrua blocos ao redor — o dano ao jogador continua existindo, mas construções e trilhas não são destruídas sem querer.",
+    rei_desc: "Mostra as receitas de crafting diretamente na tela, com busca de itens. Tira a necessidade de decorar receitas ou procurar em sites externos.",
+    lamb_desc: "Faz itens como tochas e lanternas iluminarem o chão ao redor do jogador automaticamente, sem precisar colocar blocos de luz no caminho.",
+    iris_desc: "Permite usar shaders (efeitos de luz e sombra mais realistas), o que pode deixar áreas escuras mais fáceis de enxergar dependendo do shader escolhido.",
+    skinshuffle_desc: "Permite trocar a skin do personagem dentro do próprio jogo, sem precisar reiniciar.",
+    modmenu_desc: "Cria uma tela dentro do jogo para ver e configurar todos os mods instalados, em vez de mexer em arquivos externos.",
+    ipn_desc: "Organiza o inventário automaticamente com um clique, junta itens iguais e permite travar slots para não bagunçar sua organização.",
+    appleskin_desc: "Mostra na tela informações que normalmente ficam escondidas, como o quanto de fome cada alimento realmente recupera. Deixa mecânicas invisíveis do jogo visíveis.",
+    fullbright_desc: "Clareia áreas escuras do jogo, ajudando quem tem sensibilidade à luz ou dificuldade de enxergar em cavernas e à noite sem precisar de tochas em todo lugar.",
+    emf_desc: "Permitem que resource packs adicionem texturas e modelos mais detalhados aos mobs, usados pelos pacotes de textura desta página.",
+    entityculling_desc: "Deixa de processar a renderização de entidades que não estão visíveis na tela, melhorando o FPS.",
+    ferritecore_desc: "Reduz a quantidade de memória que o jogo usa, ajudando computadores mais fracos a rodar sem travar.",
+    faithful_desc: "Redesenha as texturas do jogo em maior resolução, mantendo o visual original — só com mais nitidez e detalhe.",
+    freshanim_desc: "Dá animações mais expressivas e realistas aos mobs, o que ajuda a reconhecer suas ações e intenções (como um ataque prestes a acontecer) com mais clareza.",
+    uniquedark_desc: "Redesenha os menus do jogo com mais contraste e legibilidade, deixando telas de crafting, baú e outras interfaces mais fáceis de ler.",
+    fabricapi_desc: "Base exigida por quase todos os mods de Fabric — FabricMC",
+    flk_desc: "Permite rodar mods escritos em Kotlin, como o Inventory Profiles Next — FabricMC",
+    clothconfig_desc: "Cria as telas de configuração usadas por REI e outros mods — shedaniel",
+    architectury_desc: "Compatibilidade entre diferentes mod loaders — shedaniel",
+    cardinal_desc: "Armazena dados extras usados por outros mods — OnyxStudios",
+    placeholder_desc: "Permite que mods insiram textos dinâmicos — Patbox",
+    silk_desc: "Biblioteca de apoio usada por outros mods do pacote — comunidade Modrinth",
+    libipn_desc: "Biblioteca exigida pelo Inventory Profiles Next — blackd",
+    footer_line1: "Blocos Para Todos — trabalho escolar, 2026",
+    footer_line2: "Feito por João Victor de Lima, Cauã de Souza, Stefhany Vitória e auxiliados por Álvaro Magnum"
+  },
+  en: {
+    page_title: "Mods and credits — Blocos Para Todos",
+    nav_back: "Back to home page",
+    intro_title: "What's in each pack, and who made each mod",
+    intro_desc: "All credit goes to the original creators of each mod and texture pack. Each one has a direct link to its official Modrinth page, where you can see more details, other versions, and support the creator.",
+    nav_pack1: "Pack 1",
+    nav_pack2: "Pack 2",
+    nav_textures: "Resource packs",
+    nav_libs: "Required libraries",
+    pack1_desc: "Focus on performance, navigation, and comfort during gameplay — to reduce crashes, help you find your way in the world, and avoid frustrating losses.",
+    pack2_desc: "Focus on organization, on-screen information, and more performance — complements the first pack.",
+    textures_desc: "Texture packs that reinforce the game's visual clarity — they don't change gameplay, only how everything looks on screen.",
+    libs_desc: "These aren't \"visible\" mods — they don't add anything by themselves, but several of the mods above need them installed to work. Without them, the game won't open or the other mods will error out.",
+    tag_desempenho: "Performance",
+    tag_orientacao: "Navigation",
+    tag_motor: "Gameplay",
+    tag_seguranca: "Safety",
+    tag_cognitivo: "Cognitive",
+    tag_visual: "Visual",
+    tag_visual_cognitivo: "Visual / Cognitive",
+    tag_cosmetico: "Cosmetic",
+    tag_utilidade: "Utility",
+    credit_label: "Created by:",
+    ext_link: "View on Modrinth",
+    sodium_desc: "Rewrites how the game renders graphics, making FPS much more stable. Fewer crashes help a lot for people who have trouble reacting to sudden movement on screen.",
+    lithium_desc: "Optimizes the game's internal logic (physics, mobs, world) without changing anything visually. Works together with Sodium to make everything smoother.",
+    xaero_mini_desc: "Shows a minimap in the corner of the screen with the surrounding terrain. Helps a lot with spatial memory difficulties or easily getting lost in the game.",
+    xaero_world_desc: "Complements the minimap with a full map of the explored world, so you can plan routes calmly instead of memorizing paths.",
+    veinminer_desc: "When you mine an ore block, all connected blocks of the same type are mined together. Greatly reduces the amount of repetitive clicking needed.",
+    grave_desc: "When the player dies, items are kept safe in a grave at the death location instead of scattering on the ground. Avoids the panic of racing against time to recover everything.",
+    creeper_desc: "Prevents creeper explosions from destroying nearby blocks — damage to the player still happens, but builds and paths aren't accidentally destroyed.",
+    rei_desc: "Shows crafting recipes directly on screen, with item search. Removes the need to memorize recipes or look them up on external sites.",
+    lamb_desc: "Makes items like torches and lanterns light up the ground around the player automatically, without needing to place light blocks along the way.",
+    iris_desc: "Allows using shaders (more realistic light and shadow effects), which can make dark areas easier to see depending on the shader chosen.",
+    skinshuffle_desc: "Lets you change your character's skin from inside the game, without needing to restart.",
+    modmenu_desc: "Creates an in-game screen to view and configure all installed mods, instead of editing external files.",
+    ipn_desc: "Organizes the inventory automatically with one click, stacks matching items, and lets you lock slots so your organization doesn't get messed up.",
+    appleskin_desc: "Shows information on screen that's normally hidden, like exactly how much hunger each food restores. Makes invisible game mechanics visible.",
+    fullbright_desc: "Brightens dark areas of the game, helping those with light sensitivity or trouble seeing in caves and at night without needing torches everywhere.",
+    emf_desc: "Allow resource packs to add more detailed textures and models to mobs, used by the texture packs on this page.",
+    entityculling_desc: "Stops processing the rendering of entities that aren't visible on screen, improving FPS.",
+    ferritecore_desc: "Reduces the amount of memory the game uses, helping weaker computers run without lagging.",
+    faithful_desc: "Redesigns the game's textures in higher resolution, keeping the original look — just sharper and more detailed.",
+    freshanim_desc: "Gives mobs more expressive and realistic animations, which helps recognize their actions and intentions (like an attack about to happen) more clearly.",
+    uniquedark_desc: "Redesigns the game's menus with more contrast and readability, making crafting, chest, and other screens easier to read.",
+    fabricapi_desc: "Base required by almost all Fabric mods — FabricMC",
+    flk_desc: "Allows running mods written in Kotlin, like Inventory Profiles Next — FabricMC",
+    clothconfig_desc: "Creates the config screens used by REI and other mods — shedaniel",
+    architectury_desc: "Compatibility between different mod loaders — shedaniel",
+    cardinal_desc: "Stores extra data used by other mods — OnyxStudios",
+    placeholder_desc: "Allows mods to insert dynamic text — Patbox",
+    silk_desc: "Support library used by other mods in the pack — Modrinth community",
+    libipn_desc: "Library required by Inventory Profiles Next — blackd",
+    footer_line1: "Blocos Para Todos — school project, 2026",
+    footer_line2: "Made by João Victor de Lima, Cauã de Souza, Stefhany Vitória, with help from Álvaro Magnum"
+  },
+  es: {
+    page_title: "Mods y créditos — Blocos Para Todos",
+    nav_back: "Volver a la página principal",
+    intro_title: "Qué contiene cada paquete y quién hizo cada mod",
+    intro_desc: "Todo el crédito es de los creadores originales de cada mod y paquete de texturas. Cada uno tiene un enlace directo a su página oficial en Modrinth, donde puedes ver más detalles, otras versiones y apoyar a quien lo creó.",
+    nav_pack1: "Paquete 1",
+    nav_pack2: "Paquete 2",
+    nav_textures: "Paquetes de recursos",
+    nav_libs: "Bibliotecas necesarias",
+    pack1_desc: "Enfoque en rendimiento, navegación y comodidad durante el juego — para reducir los bloqueos, ayudar a orientarte en el mundo y evitar pérdidas frustrantes.",
+    pack2_desc: "Enfoque en organización, información visible en pantalla y más rendimiento — complementa el primer paquete.",
+    textures_desc: "Paquetes de texturas que refuerzan la claridad visual del juego — no cambian la jugabilidad, solo cómo se ve todo en pantalla.",
+    libs_desc: "Estos no son mods \"visibles\" — no añaden nada por sí solos, pero varios de los mods anteriores necesitan tenerlos instalados para funcionar. Sin ellos, el juego no abre o los demás mods dan error.",
+    tag_desempenho: "Rendimiento",
+    tag_orientacao: "Orientación",
+    tag_motor: "Mecánica",
+    tag_seguranca: "Seguridad",
+    tag_cognitivo: "Cognitivo",
+    tag_visual: "Visual",
+    tag_visual_cognitivo: "Visual / Cognitivo",
+    tag_cosmetico: "Cosmético",
+    tag_utilidade: "Utilidad",
+    credit_label: "Creado por:",
+    ext_link: "Ver en Modrinth",
+    sodium_desc: "Reescribe la forma en que el juego renderiza los gráficos, haciendo que los FPS sean mucho más estables. Menos bloqueos ayudan bastante a quienes tienen dificultad para reaccionar a movimientos bruscos en pantalla.",
+    lithium_desc: "Optimiza la lógica interna del juego (física, mobs, mundo) sin cambiar nada visualmente. Funciona junto con Sodium para hacer todo más fluido.",
+    xaero_mini_desc: "Muestra un minimapa en la esquina de la pantalla con el terreno circundante. Ayuda mucho a quienes tienen dificultad de memoria espacial o se pierden fácilmente en el juego.",
+    xaero_world_desc: "Complementa el minimapa con un mapa completo del mundo ya explorado, para planificar rutas con calma en lugar de memorizar caminos.",
+    veinminer_desc: "Al minar un bloque de mineral, todos los bloques conectados del mismo tipo se minan juntos. Reduce mucho la cantidad de clics repetitivos necesarios.",
+    grave_desc: "Cuando el jugador muere, los objetos se guardan en una tumba en el lugar de la muerte en lugar de esparcirse por el suelo. Evita la desesperación de correr contra el tiempo para recuperarlo todo.",
+    creeper_desc: "Impide que la explosión del creeper destruya los bloques a su alrededor — el daño al jugador sigue existiendo, pero las construcciones y senderos no se destruyen sin querer.",
+    rei_desc: "Muestra las recetas de crafteo directamente en la pantalla, con búsqueda de objetos. Elimina la necesidad de memorizar recetas o buscarlas en sitios externos.",
+    lamb_desc: "Hace que objetos como antorchas y linternas iluminen el suelo alrededor del jugador automáticamente, sin necesidad de colocar bloques de luz en el camino.",
+    iris_desc: "Permite usar shaders (efectos de luz y sombra más realistas), lo que puede hacer que las áreas oscuras sean más fáciles de ver según el shader elegido.",
+    skinshuffle_desc: "Permite cambiar la skin del personaje dentro del propio juego, sin necesidad de reiniciar.",
+    modmenu_desc: "Crea una pantalla dentro del juego para ver y configurar todos los mods instalados, en lugar de tener que editar archivos externos.",
+    ipn_desc: "Organiza el inventario automáticamente con un clic, junta objetos iguales y permite bloquear espacios para no desordenar tu organización.",
+    appleskin_desc: "Muestra en pantalla información que normalmente está oculta, como cuánta hambre recupera realmente cada alimento. Hace visibles mecánicas invisibles del juego.",
+    fullbright_desc: "Aclara las áreas oscuras del juego, ayudando a quienes tienen sensibilidad a la luz o dificultad para ver en cuevas y de noche sin necesidad de antorchas por todas partes.",
+    emf_desc: "Permiten que los paquetes de recursos añadan texturas y modelos más detallados a los mobs, usados por los paquetes de texturas de esta página.",
+    entityculling_desc: "Deja de procesar el renderizado de entidades que no están visibles en pantalla, mejorando los FPS.",
+    ferritecore_desc: "Reduce la cantidad de memoria que usa el juego, ayudando a que las computadoras más débiles funcionen sin trabarse.",
+    faithful_desc: "Rediseña las texturas del juego en mayor resolución, manteniendo el aspecto original — solo con más nitidez y detalle.",
+    freshanim_desc: "Da animaciones más expresivas y realistas a los mobs, lo que ayuda a reconocer sus acciones e intenciones (como un ataque a punto de ocurrir) con más claridad.",
+    uniquedark_desc: "Rediseña los menús del juego con más contraste y legibilidad, haciendo que las pantallas de crafteo, cofre y otras interfaces sean más fáciles de leer.",
+    fabricapi_desc: "Base requerida por casi todos los mods de Fabric — FabricMC",
+    flk_desc: "Permite ejecutar mods escritos en Kotlin, como Inventory Profiles Next — FabricMC",
+    clothconfig_desc: "Crea las pantallas de configuración usadas por REI y otros mods — shedaniel",
+    architectury_desc: "Compatibilidad entre diferentes mod loaders — shedaniel",
+    cardinal_desc: "Almacena datos adicionales usados por otros mods — OnyxStudios",
+    placeholder_desc: "Permite que los mods inserten textos dinámicos — Patbox",
+    silk_desc: "Biblioteca de apoyo usada por otros mods del paquete — comunidad de Modrinth",
+    libipn_desc: "Biblioteca requerida por Inventory Profiles Next — blackd",
+    footer_line1: "Blocos Para Todos — trabajo escolar, 2026",
+    footer_line2: "Hecho por João Victor de Lima, Cauã de Souza, Stefhany Vitória y con la ayuda de Álvaro Magnum"
+  },
+  fr: {
+    page_title: "Mods et crédits — Blocos Para Todos",
+    nav_back: "Retour à la page d'accueil",
+    intro_title: "Ce que contient chaque pack, et qui a créé chaque mod",
+    intro_desc: "Tout le mérite revient aux créateurs originaux de chaque mod et pack de textures. Chacun dispose d'un lien direct vers sa page officielle sur Modrinth, où vous pouvez voir plus de détails, d'autres versions et soutenir son créateur.",
+    nav_pack1: "Pack 1",
+    nav_pack2: "Pack 2",
+    nav_textures: "Packs de textures",
+    nav_libs: "Bibliothèques nécessaires",
+    pack1_desc: "Axé sur la performance, la navigation et le confort de jeu — pour réduire les plantages, aider à se repérer dans le monde et éviter les pertes frustrantes.",
+    pack2_desc: "Axé sur l'organisation, les informations visibles à l'écran et plus de performance — complète le premier pack.",
+    textures_desc: "Packs de textures qui renforcent la clarté visuelle du jeu — ils ne changent pas le gameplay, seulement l'apparence à l'écran.",
+    libs_desc: "Ce ne sont pas des mods « visibles » — ils n'ajoutent rien par eux-mêmes, mais plusieurs des mods ci-dessus ont besoin d'eux pour fonctionner. Sans eux, le jeu ne s'ouvre pas ou les autres mods plantent.",
+    tag_desempenho: "Performance",
+    tag_orientacao: "Orientation",
+    tag_motor: "Mécanique",
+    tag_seguranca: "Sécurité",
+    tag_cognitivo: "Cognitif",
+    tag_visual: "Visuel",
+    tag_visual_cognitivo: "Visuel / Cognitif",
+    tag_cosmetico: "Cosmétique",
+    tag_utilidade: "Utilitaire",
+    credit_label: "Créé par :",
+    ext_link: "Voir sur Modrinth",
+    sodium_desc: "Réécrit la façon dont le jeu affiche les graphismes, rendant les FPS beaucoup plus stables. Moins de plantages, ce qui aide beaucoup les personnes ayant du mal à réagir aux mouvements brusques à l'écran.",
+    lithium_desc: "Optimise la logique interne du jeu (physique, mobs, monde) sans rien changer visuellement. Fonctionne avec Sodium pour rendre tout plus fluide.",
+    xaero_mini_desc: "Affiche une mini-carte dans un coin de l'écran avec le terrain environnant. Très utile pour les personnes ayant des difficultés de mémoire spatiale ou qui se perdent facilement dans le jeu.",
+    xaero_world_desc: "Complète la mini-carte avec une carte complète du monde déjà exploré, pour planifier des itinéraires sereinement au lieu de mémoriser des chemins.",
+    veinminer_desc: "Lorsque vous minez un bloc de minerai, tous les blocs connectés du même type sont minés ensemble. Réduit fortement le nombre de clics répétitifs nécessaires.",
+    grave_desc: "Lorsque le joueur meurt, les objets sont conservés dans une tombe à l'endroit du décès au lieu de se disperser au sol. Évite la panique de courir contre la montre pour tout récupérer.",
+    creeper_desc: "Empêche l'explosion du creeper de détruire les blocs environnants — les dégâts au joueur restent, mais les constructions et chemins ne sont pas détruits par accident.",
+    rei_desc: "Affiche les recettes de fabrication directement à l'écran, avec recherche d'objets. Plus besoin de mémoriser les recettes ou de les chercher sur des sites externes.",
+    lamb_desc: "Fait que des objets comme les torches et les lanternes éclairent automatiquement le sol autour du joueur, sans avoir besoin de placer des blocs de lumière sur le chemin.",
+    iris_desc: "Permet d'utiliser des shaders (effets de lumière et d'ombre plus réalistes), ce qui peut rendre les zones sombres plus faciles à voir selon le shader choisi.",
+    skinshuffle_desc: "Permet de changer le skin du personnage directement dans le jeu, sans avoir besoin de redémarrer.",
+    modmenu_desc: "Crée un écran dans le jeu pour voir et configurer tous les mods installés, au lieu de modifier des fichiers externes.",
+    ipn_desc: "Organise l'inventaire automatiquement en un clic, regroupe les objets identiques et permet de verrouiller des emplacements pour ne pas gâcher votre organisation.",
+    appleskin_desc: "Affiche à l'écran des informations normalement cachées, comme la quantité de faim que chaque aliment restaure réellement. Rend visibles des mécaniques de jeu invisibles.",
+    fullbright_desc: "Éclaircit les zones sombres du jeu, aidant les personnes sensibles à la lumière ou ayant du mal à voir dans les grottes et la nuit sans avoir besoin de torches partout.",
+    emf_desc: "Permettent aux packs de ressources d'ajouter des textures et modèles plus détaillés aux mobs, utilisés par les packs de textures de cette page.",
+    entityculling_desc: "Arrête de traiter le rendu des entités non visibles à l'écran, améliorant les FPS.",
+    ferritecore_desc: "Réduit la quantité de mémoire utilisée par le jeu, aidant les ordinateurs moins puissants à tourner sans ramer.",
+    faithful_desc: "Redessine les textures du jeu en plus haute résolution, en gardant l'apparence originale — juste plus nette et plus détaillée.",
+    freshanim_desc: "Donne aux mobs des animations plus expressives et réalistes, ce qui aide à reconnaître plus clairement leurs actions et intentions (comme une attaque imminente).",
+    uniquedark_desc: "Redessine les menus du jeu avec plus de contraste et de lisibilité, rendant les écrans de fabrication, de coffre et autres interfaces plus faciles à lire.",
+    fabricapi_desc: "Base requise par presque tous les mods Fabric — FabricMC",
+    flk_desc: "Permet d'exécuter des mods écrits en Kotlin, comme Inventory Profiles Next — FabricMC",
+    clothconfig_desc: "Crée les écrans de configuration utilisés par REI et d'autres mods — shedaniel",
+    architectury_desc: "Compatibilité entre différents mod loaders — shedaniel",
+    cardinal_desc: "Stocke des données supplémentaires utilisées par d'autres mods — OnyxStudios",
+    placeholder_desc: "Permet aux mods d'insérer du texte dynamique — Patbox",
+    silk_desc: "Bibliothèque de support utilisée par d'autres mods du pack — communauté Modrinth",
+    libipn_desc: "Bibliothèque requise par Inventory Profiles Next — blackd",
+    footer_line1: "Blocos Para Todos — projet scolaire, 2026",
+    footer_line2: "Créé par João Victor de Lima, Cauã de Souza, Stefhany Vitória, avec l'aide d'Álvaro Magnum"
+  }
+};
+
+const htmlLangMap = { pt: "pt-BR", en: "en", es: "es", fr: "fr" };
+
+function applyLanguage(lang) {
+  const dict = translations[lang] || translations.pt;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.title = dict.page_title;
+  document.documentElement.setAttribute("lang", htmlLangMap[lang] || "pt-BR");
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+  });
+  try { localStorage.setItem("bpt_lang", lang); } catch (e) {}
+}
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLanguage(btn.getAttribute("data-lang")));
+});
+
+let savedLang = "pt";
+try { savedLang = localStorage.getItem("bpt_lang") || "pt"; } catch (e) {}
+applyLanguage(savedLang);
+</script>
+
+</body>
+</html>

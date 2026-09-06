@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Blocos Para Todos — Mods acessíveis para Minecraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #23261E;
+  --bg: #F4EFDF;
+  --panel: #EAE2C8;
+  --panel-line: #D8CCA6;
+  --forest: #3B5240;
+  --forest-dark: #2A3B2E;
+  --amber: #C98A3E;
+  --amber-dark: #9C6A2C;
+  --slate: #4C5B66;
+  --cream: #FBF8EE;
+  --radius: 0px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  color: var(--forest-dark);
+  margin: 0;
+  line-height: 1.15;
+}
+a { color: var(--forest-dark); }
+:focus-visible {
+  outline: 3px solid var(--amber-dark);
+  outline-offset: 3px;
+}
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+/* NAV */
+header.site {
+  border-bottom: 3px solid var(--forest-dark);
+  background: var(--cream);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--forest-dark);
+}
+.logo-mark {
+  width: 30px;
+  height: 30px;
+  background: var(--forest);
+  border: 2px solid var(--forest-dark);
+  position: relative;
+  flex-shrink: 0;
+}
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  top: 6px; left: 6px;
+  width: 8px; height: 8px;
+  background: var(--amber);
+}
+.nav-right { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+nav.links { display: flex; gap: 28px; }
+nav.links a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+nav.links a:hover { border-bottom-color: var(--amber-dark); }
+.lang-switch { display: flex; gap: 4px; border: 1.5px solid var(--forest-dark); padding: 3px; background: var(--cream); }
+.lang-btn {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--forest-dark);
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.lang-btn:hover { background: var(--panel); }
+.lang-btn[aria-pressed="true"] { background: var(--forest-dark); color: var(--cream); }
+/* HERO */
+.hero {
+  padding: 88px 32px 96px;
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  padding: 0;
+}
+.hero h1 {
+  font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  max-width: 14ch;
+}
+.hero p.lede {
+  margin-top: 22px;
+  max-width: 46ch;
+  font-size: 1.15rem;
+  color: #3a3d33;
+}
+.hero .cta-row {
+  margin-top: 34px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--forest-dark);
+  background: var(--forest);
+  color: var(--cream);
+  cursor: pointer;
+}
+.btn:hover { background: var(--forest-dark); }
+.btn.secondary {
+  background: transparent;
+  color: var(--forest-dark);
+}
+.btn.secondary:hover { background: var(--panel); }
+/* Hero illustration */
+.hero-art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 3px solid var(--forest-dark);
+  filter: grayscale(100%);
+  display: block;
+}
+/* MISSION */
+.mission {
+  background: var(--forest-dark);
+  color: var(--cream);
+  padding: 80px 32px;
+}
+.mission h2 {
+  color: var(--cream);
+  font-size: 2rem;
+  max-width: 22ch;
+}
+.mission .lede {
+  margin-top: 18px;
+  max-width: 58ch;
+  color: #DCE3D3;
+  font-size: 1.05rem;
+}
+.traits {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #1f2c22;
+  border: 1px solid #1f2c22;
+}
+.trait {
+  background: var(--forest-dark);
+  padding: 28px 26px;
+}
+.trait .icon {
+  width: 34px; height: 34px;
+  background: var(--amber);
+  margin-bottom: 16px;
+}
+.trait h3 {
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.trait p {
+  margin-top: 8px;
+  color: #C9D2BF;
+  font-size: 0.95rem;
+}
+/* MODS */
+.mods { padding: 88px 32px; }
+.section-head { max-width: 60ch; }
+.section-head h2 { font-size: 2rem; }
+.section-head p {
+  margin-top: 14px;
+  color: #3a3d33;
+  font-size: 1.05rem;
+}
+.mod-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--panel-line);
+  border: 2px solid var(--panel-line);
+}
+@media (max-width: 900px) {
+  .mod-grid { grid-template-columns: 1fr; }
+}
+.mod-tile {
+  background: var(--panel);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mod-tile .tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--forest-dark);
+  border: 1.5px solid var(--forest-dark);
+  display: inline-block;
+  padding: 3px 10px;
+  width: fit-content;
+}
+.mod-tile h3 {
+  font-size: 1.35rem;
+}
+.mod-tile p { color: #3a3d33; flex-grow: 1; }
+.mod-tile .dl {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--forest-dark);
+  border-bottom: 2px solid var(--amber-dark);
+  width: fit-content;
+  padding-bottom: 2px;
+}
+.mods-cta {
+  margin-top: 28px;
+  text-align: center;
+}
+/* INSTALL */
+.install {
+  background: var(--cream);
+  padding: 88px 32px;
+  border-top: 3px solid var(--forest-dark);
+  border-bottom: 3px solid var(--forest-dark);
+}
+.steps {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+.step .num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--amber-dark);
+  line-height: 1;
+}
+.step h3 {
+  margin-top: 10px;
+  font-size: 1.15rem;
+}
+.step p {
+  margin-top: 8px;
+  color: #3a3d33;
+  font-size: 0.98rem;
+}
+/* FOOTER */
+footer {
+  padding: 48px 32px 56px;
+  color: #5b5e50;
+  font-size: 0.92rem;
+}
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-credit img {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid var(--forest-dark);
+  filter: grayscale(100%);
+  flex-shrink: 0;
+}
+@media (max-width: 800px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-art { max-width: 320px; margin: 0 auto; }
+  .traits { grid-template-columns: 1fr; }
+  .mod-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  nav.links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="logo"><span class="logo-mark"></span>Blocos Para Todos</div>
+    <div class="nav-right">
+      <nav class="links">
+        <a href="#missao" data-i18n="nav_missao">Missão</a>
+        <a href="#mods" data-i18n="nav_mods">Mods</a>
+        <a href="#instalar" data-i18n="nav_instalar">Como instalar</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma / Langue">
+        <button type="button" class="lang-btn" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 data-i18n="hero_title">Sobreviver em Minecraft do jeito que funciona para você</h1>
+      <p class="lede" data-i18n="hero_lede">Um conjunto de mods pensado para jogadores com divergências — visuais, motoras, cognitivas ou auditivas — que querem aproveitar o modo sobrevivência sem barreiras.</p>
+      <div class="cta-row">
+        <a href="#mods" class="btn" data-i18n="cta_view_mods">Ver os mods</a>
+        <a href="#instalar" class="btn secondary" data-i18n="nav_instalar">Como instalar</a>
+      </div>
+    </div>
+    <img class="hero-art" src="Minecraft.jpg" alt="Pessoa usando uma máscara com cabeça de bloco estilo Minecraft">
+  </div>
+</section>
+
+<section class="mission" id="missao">
+  <div class="wrap">
+    <h2 data-i18n="mission_title">Nem todo mundo joga do mesmo jeito — e o jogo devia acompanhar isso</h2>
+    <p class="lede" data-i18n="mission_lede">Cada mod deste projeto resolve uma barreira real que jogadores neurodivergentes encontram no modo sobrevivência: informação visual sobrecarregada, sequências de crafting difíceis de acompanhar, alertas sonoros que passam despercebidos e ações que exigem reflexos rápidos.</p>
+    <div class="traits">
+      <div class="trait">
+        <div class="icon"></div>
+        <h3 data-i18n="trait1_title">Clareza visual</h3>
+        <p data-i18n="trait1_desc">Menos ruído na tela, mais destaque para o que importa.</p>
+      </div>
+      <div class="trait">
+        <div class="icon"></div>
+        <h3 data-i18n="trait2_title">Passo a passo</h3>
+        <p data-i18n="trait2_desc">Tarefas complexas divididas em etapas simples de seguir.</p>
+      </div>
+      <div class="trait">
+        <div class="icon"></div>
+        <h3 data-i18n="trait3_title">Seu próprio ritmo</h3>
+        <p data-i18n="trait3_desc">Menos pressa artificial, mais tempo para decidir e reagir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mods" id="mods">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="mods_title">Os mods</h2>
+      <p data-i18n="mods_desc">Cada um pode ser baixado separadamente e combinado com os outros, dependendo do que ajuda mais no seu jogo.</p>
+    </div>
+    <div class="mod-grid">
+      <div class="mod-tile">
+        <span class="tag" data-i18n="tag_pack1">Pacote 1</span>
+        <h3 data-i18n="modtile1_title">Mods — parte 1</h3>
+        <p data-i18n="modtile1_desc">Primeiro conjunto de mods compactado, pronto para extrair na pasta "mods" do Minecraft.</p>
+        <a class="dl" data-i18n="dl_link" href="mods1.rar">Baixar .rar</a>
+      </div>
+      <div class="mod-tile">
+        <span class="tag" data-i18n="tag_pack2">Pacote 2</span>
+        <h3 data-i18n="modtile2_title">Mods — parte 2</h3>
+        <p data-i18n="modtile2_desc">Segundo conjunto de mods compactado, complementar ao primeiro pacote.</p>
+        <a class="dl" data-i18n="dl_link" href="mods2.rar">Baixar .rar</a>
+      </div>
+      <div class="mod-tile">
+        <span class="tag" data-i18n="tag_texturas">Texturas</span>
+        <h3 data-i18n="modtile3_title">Resource Packs</h3>
+        <p data-i18n="modtile3_desc">Pacotes de texturas que reforçam a clareza visual do jogo, para usar junto com os mods.</p>
+        <a class="dl" data-i18n="dl_link" href="resourcepacks.rar">Baixar .rar</a>
+      </div>
+    </div>
+    <div class="mods-cta">
+      <a href="mods.html" class="btn" data-i18n="mods_cta_link">Ver o que cada mod faz e quem criou</a>
+    </div>
+  </div>
+</section>
+
+<section class="install" id="instalar">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="nav_instalar">Como instalar</h2>
+      <p data-i18n="install_desc">Os mods funcionam com Forge ou Fabric. O processo é o mesmo para todos.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3 data-i18n="step1_title">Baixe o pacote</h3>
+        <p data-i18n="step1_desc">Clique em "Baixar .rar" no pacote desejado e salve o arquivo compactado no seu computador.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3 data-i18n="step2_title">Extraia o arquivo</h3>
+        <p data-i18n="step2_desc">Use um programa como o WinRAR ou 7-Zip para extrair o conteúdo do .rar.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3 data-i18n="step3_title">Coloque na pasta certa</h3>
+        <p data-i18n="step3_desc">Mova os mods extraídos para a pasta "mods" do jogo e os resource packs para a pasta "resourcepacks", depois inicie o Minecraft normalmente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer_line1">Blocos Para Todos — trabalho escolar, 2026</span>
+    <span class="footer-credit"><img src="Minecraft.jpg" alt=""><span data-i18n="footer_line2">Feito por João Victor de Lima, Cauã de Souza, Stefhany Vitória e auxiliados por Álvaro Magnum</span></span>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  pt: {
+    page_title: "Blocos Para Todos — Mods acessíveis para Minecraft",
+    nav_missao: "Missão",
+    nav_mods: "Mods",
+    nav_instalar: "Como instalar",
+    hero_title: "Sobreviver em Minecraft do jeito que funciona para você",
+    hero_lede: "Um conjunto de mods pensado para jogadores com divergências — visuais, motoras, cognitivas ou auditivas — que querem aproveitar o modo sobrevivência sem barreiras.",
+    cta_view_mods: "Ver os mods",
+    mission_title: "Nem todo mundo joga do mesmo jeito — e o jogo devia acompanhar isso",
+    mission_lede: "Cada mod deste projeto resolve uma barreira real que jogadores neurodivergentes encontram no modo sobrevivência: informação visual sobrecarregada, sequências de crafting difíceis de acompanhar, alertas sonoros que passam despercebidos e ações que exigem reflexos rápidos.",
+    trait1_title: "Clareza visual",
+    trait1_desc: "Menos ruído na tela, mais destaque para o que importa.",
+    trait2_title: "Passo a passo",
+    trait2_desc: "Tarefas complexas divididas em etapas simples de seguir.",
+    trait3_title: "Seu próprio ritmo",
+    trait3_desc: "Menos pressa artificial, mais tempo para decidir e reagir.",
+    mods_title: "Os mods",
+    mods_desc: "Cada um pode ser baixado separadamente e combinado com os outros, dependendo do que ajuda mais no seu jogo.",
+    tag_pack1: "Pacote 1",
+    modtile1_title: "Mods — parte 1",
+    modtile1_desc: "Primeiro conjunto de mods compactado, pronto para extrair na pasta \"mods\" do Minecraft.",
+    tag_pack2: "Pacote 2",
+    modtile2_title: "Mods — parte 2",
+    modtile2_desc: "Segundo conjunto de mods compactado, complementar ao primeiro pacote.",
+    tag_texturas: "Texturas",
+    modtile3_title: "Resource Packs",
+    modtile3_desc: "Pacotes de texturas que reforçam a clareza visual do jogo, para usar junto com os mods.",
+    dl_link: "Baixar .rar",
+    mods_cta_link: "Ver o que cada mod faz e quem criou",
+    install_desc: "Os mods funcionam com Forge ou Fabric. O processo é o mesmo para todos.",
+    step1_title: "Baixe o pacote",
+    step1_desc: "Clique em \"Baixar .rar\" no pacote desejado e salve o arquivo compactado no seu computador.",
+    step2_title: "Extraia o arquivo",
+    step2_desc: "Use um programa como o WinRAR ou 7-Zip para extrair o conteúdo do .rar.",
+    step3_title: "Coloque na pasta certa",
+    step3_desc: "Mova os mods extraídos para a pasta \"mods\" do jogo e os resource packs para a pasta \"resourcepacks\", depois inicie o Minecraft normalmente.",
+    footer_line1: "Blocos Para Todos — trabalho escolar, 2026",
+    footer_line2: "Feito por João Victor de Lima, Cauã de Souza, Stefhany Vitória e auxiliados por Álvaro Magnum"
+  },
+  en: {
+    page_title: "Blocos Para Todos — Accessible mods for Minecraft",
+    nav_missao: "Mission",
+    nav_mods: "Mods",
+    nav_instalar: "How to install",
+    hero_title: "Survive in Minecraft the way that works for you",
+    hero_lede: "A set of mods designed for players with differences — visual, motor, cognitive, or auditory — who want to enjoy survival mode without barriers.",
+    cta_view_mods: "See the mods",
+    mission_title: "Not everyone plays the same way — and the game should keep up",
+    mission_lede: "Each mod in this project addresses a real barrier that neurodivergent players face in survival mode: overloaded visual information, crafting sequences that are hard to follow, sound alerts that go unnoticed, and actions that demand quick reflexes.",
+    trait1_title: "Visual clarity",
+    trait1_desc: "Less on-screen noise, more focus on what matters.",
+    trait2_title: "Step by step",
+    trait2_desc: "Complex tasks broken down into simple steps to follow.",
+    trait3_title: "Your own pace",
+    trait3_desc: "Less artificial rush, more time to decide and react.",
+    mods_title: "The mods",
+    mods_desc: "Each one can be downloaded separately and combined with the others, depending on what helps most in your game.",
+    tag_pack1: "Pack 1",
+    modtile1_title: "Mods — part 1",
+    modtile1_desc: "First compressed mod set, ready to extract into Minecraft's \"mods\" folder.",
+    tag_pack2: "Pack 2",
+    modtile2_title: "Mods — part 2",
+    modtile2_desc: "Second compressed mod set, complementing the first pack.",
+    tag_texturas: "Textures",
+    modtile3_title: "Resource Packs",
+    modtile3_desc: "Texture packs that reinforce the game's visual clarity, to use alongside the mods.",
+    dl_link: "Download .rar",
+    mods_cta_link: "See what each mod does and who made it",
+    install_desc: "The mods work with Forge or Fabric. The process is the same for all of them.",
+    step1_title: "Download the pack",
+    step1_desc: "Click \"Download .rar\" on the pack you want and save the compressed file to your computer.",
+    step2_title: "Extract the file",
+    step2_desc: "Use a program like WinRAR or 7-Zip to extract the contents of the .rar.",
+    step3_title: "Put it in the right folder",
+    step3_desc: "Move the extracted mods to the game's \"mods\" folder and the resource packs to the \"resourcepacks\" folder, then start Minecraft normally.",
+    footer_line1: "Blocos Para Todos — school project, 2026",
+    footer_line2: "Made by João Victor de Lima, Cauã de Souza, Stefhany Vitória, with help from Álvaro Magnum"
+  },
+  es: {
+    page_title: "Blocos Para Todos — Mods accesibles para Minecraft",
+    nav_missao: "Misión",
+    nav_mods: "Mods",
+    nav_instalar: "Cómo instalar",
+    hero_title: "Sobrevive en Minecraft de la forma que funcione para ti",
+    hero_lede: "Un conjunto de mods pensado para jugadores con diferencias — visuales, motoras, cognitivas o auditivas — que quieren disfrutar del modo supervivencia sin barreras.",
+    cta_view_mods: "Ver los mods",
+    mission_title: "No todos juegan de la misma manera — y el juego debería adaptarse a eso",
+    mission_lede: "Cada mod de este proyecto resuelve una barrera real que enfrentan los jugadores neurodivergentes en el modo supervivencia: información visual sobrecargada, secuencias de crafteo difíciles de seguir, alertas sonoras que pasan desapercibidas y acciones que exigen reflejos rápidos.",
+    trait1_title: "Claridad visual",
+    trait1_desc: "Menos ruido en pantalla, más énfasis en lo que importa.",
+    trait2_title: "Paso a paso",
+    trait2_desc: "Tareas complejas divididas en pasos simples de seguir.",
+    trait3_title: "Tu propio ritmo",
+    trait3_desc: "Menos prisa artificial, más tiempo para decidir y reaccionar.",
+    mods_title: "Los mods",
+    mods_desc: "Cada uno se puede descargar por separado y combinar con los demás, según lo que más te ayude en tu juego.",
+    tag_pack1: "Paquete 1",
+    modtile1_title: "Mods — parte 1",
+    modtile1_desc: "Primer conjunto de mods comprimido, listo para extraer en la carpeta \"mods\" de Minecraft.",
+    tag_pack2: "Paquete 2",
+    modtile2_title: "Mods — parte 2",
+    modtile2_desc: "Segundo conjunto de mods comprimido, complementario al primer paquete.",
+    tag_texturas: "Texturas",
+    modtile3_title: "Resource Packs",
+    modtile3_desc: "Paquetes de texturas que refuerzan la claridad visual del juego, para usar junto con los mods.",
+    dl_link: "Descargar .rar",
+    mods_cta_link: "Ver qué hace cada mod y quién lo creó",
+    install_desc: "Los mods funcionan con Forge o Fabric. El proceso es el mismo para todos.",
+    step1_title: "Descarga el paquete",
+    step1_desc: "Haz clic en \"Descargar .rar\" en el paquete que quieras y guarda el archivo comprimido en tu computadora.",
+    step2_title: "Extrae el archivo",
+    step2_desc: "Usa un programa como WinRAR o 7-Zip para extraer el contenido del .rar.",
+    step3_title: "Colócalo en la carpeta correcta",
+    step3_desc: "Mueve los mods extraídos a la carpeta \"mods\" del juego y los paquetes de texturas a la carpeta \"resourcepacks\", luego inicia Minecraft normalmente.",
+    footer_line1: "Blocos Para Todos — trabajo escolar, 2026",
+    footer_line2: "Hecho por João Victor de Lima, Cauã de Souza, Stefhany Vitória y con la ayuda de Álvaro Magnum"
+  },
+  fr: {
+    page_title: "Blocos Para Todos — Mods accessibles pour Minecraft",
+    nav_missao: "Mission",
+    nav_mods: "Mods",
+    nav_instalar: "Comment installer",
+    hero_title: "Survivre dans Minecraft à votre façon",
+    hero_lede: "Un ensemble de mods conçu pour les joueurs ayant des différences — visuelles, motrices, cognitives ou auditives — qui veulent profiter du mode survie sans barrières.",
+    cta_view_mods: "Voir les mods",
+    mission_title: "Tout le monde ne joue pas de la même façon — et le jeu devrait s'adapter",
+    mission_lede: "Chaque mod de ce projet résout un obstacle réel que rencontrent les joueurs neurodivergents en mode survie : une surcharge d'informations visuelles, des séquences de fabrication difficiles à suivre, des alertes sonores qui passent inaperçues et des actions exigeant des réflexes rapides.",
+    trait1_title: "Clarté visuelle",
+    trait1_desc: "Moins de bruit visuel à l'écran, plus de mise en avant de l'essentiel.",
+    trait2_title: "Étape par étape",
+    trait2_desc: "Des tâches complexes décomposées en étapes simples à suivre.",
+    trait3_title: "Votre propre rythme",
+    trait3_desc: "Moins de précipitation artificielle, plus de temps pour décider et réagir.",
+    mods_title: "Les mods",
+    mods_desc: "Chacun peut être téléchargé séparément et combiné avec les autres, selon ce qui vous aide le plus dans votre jeu.",
+    tag_pack1: "Pack 1",
+    modtile1_title: "Mods — partie 1",
+    modtile1_desc: "Premier ensemble de mods compressé, prêt à extraire dans le dossier « mods » de Minecraft.",
+    tag_pack2: "Pack 2",
+    modtile2_title: "Mods — partie 2",
+    modtile2_desc: "Deuxième ensemble de mods compressé, complémentaire au premier pack.",
+    tag_texturas: "Textures",
+    modtile3_title: "Resource Packs",
+    modtile3_desc: "Packs de textures qui renforcent la clarté visuelle du jeu, à utiliser avec les mods.",
+    dl_link: "Télécharger le .rar",
+    mods_cta_link: "Voir ce que fait chaque mod et qui l'a créé",
+    install_desc: "Les mods fonctionnent avec Forge ou Fabric. Le processus est le même pour tous.",
+    step1_title: "Téléchargez le pack",
+    step1_desc: "Cliquez sur « Télécharger le .rar » sur le pack souhaité et enregistrez le fichier compressé sur votre ordinateur.",
+    step2_title: "Extrayez le fichier",
+    step2_desc: "Utilisez un programme comme WinRAR ou 7-Zip pour extraire le contenu du .rar.",
+    step3_title: "Placez-le dans le bon dossier",
+    step3_desc: "Déplacez les mods extraits dans le dossier « mods » du jeu et les packs de textures dans le dossier « resourcepacks », puis lancez Minecraft normalement.",
+    footer_line1: "Blocos Para Todos — projet scolaire, 2026",
+    footer_line2: "Créé par João Victor de Lima, Cauã de Souza, Stefhany Vitória, avec l'aide d'Álvaro Magnum"
+  }
+};
+
+const htmlLangMap = { pt: "pt-BR", en: "en", es: "es", fr: "fr" };
+
+function applyLanguage(lang) {
+  const dict = translations[lang] || translations.pt;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.title = dict.page_title;
+  document.documentElement.setAttribute("lang", htmlLangMap[lang] || "pt-BR");
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+  });
+  try { localStorage.setItem("bpt_lang", lang); } catch (e) {}
+}
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLanguage(btn.getAttribute("data-lang")));
+});
+
+let savedLang = "pt";
+try { savedLang = localStorage.getItem("bpt_lang") || "pt"; } catch (e) {}
+applyLanguage(savedLang);
+</script>
+
+</body>
+</html>
